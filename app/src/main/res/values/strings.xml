@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BusApp</string>
+    <string name="main_title_string">버스 정보를 찾아보세요</string>
+</resources>
