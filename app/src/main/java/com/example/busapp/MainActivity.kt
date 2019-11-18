@@ -1,11 +1,9 @@
 package com.example.busapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.CardView
 import android.view.WindowManager
-import android.widget.GridLayout
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,25 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        hideActionBar()
+//        hideActionBar()
         changeStatusBarColor()
-//        setSingleEvent(mainGrid)
-
+        setMenuClickListener()
     }
 
-//    private fun setSingleEvent(gridLayout: GridLayout) {
-//        for (i in 0..gridLayout.childCount) {
-//            val cardView = gridLayout.getChildAt(i) as CardView
-//            cardView.setOnClickListener {
-//                Toast.makeText(this, "Selected Index $i", Toast.LENGTH_LONG).show()
-//            }
-//        }
-//    }
-
-    private fun hideActionBar() {
-        supportActionBar?.hide()
+    private fun setMenuClickListener() {
+        first_menu.setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+        }
     }
-
+    
     private fun changeStatusBarColor() {
         window.run {
             this.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
