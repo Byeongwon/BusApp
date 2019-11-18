@@ -2,7 +2,13 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#000000</color>
+    <color name="colorAccent">@color/color_white</color>
     <color name="appMainColor">#e6e6fa</color>
-    <color name="black">#000000</color>
+    <!--메인 배경 색상-->
+    <color name="main_background_color">#1E96FF</color>"
+
+    <!--기본컬러-->
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+
 </resources>

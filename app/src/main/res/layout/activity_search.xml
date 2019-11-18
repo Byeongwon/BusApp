@@ -2,20 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#e6e6fa"
+              android:background="@color/main_background_color"
               android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
             android:id="@+id/input_bus_stop_search_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
     >
 
         <EditText
                 android:id="@+id/input_bus_stop_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
                 android:hint="@string/bus_stop_search_hint">
             <requestFocus />
         </EditText>

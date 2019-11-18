@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:background="#e6e6fa"
+              android:background="@color/main_background_color"
               android:weightSum="10">
 
     <RelativeLayout
@@ -16,8 +16,8 @@
                 android:id="@+id/textGrid"
                 android:text="@string/main_title_string"
                 android:textSize="25dp"
-                android:textStyle="italic"
-                android:textColor="#000"
+
+                android:textColor="@color/color_white"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
