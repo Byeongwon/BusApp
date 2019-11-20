@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName
 data class Body (
 
     @SerializedName("items")
-    var items: Items? = null,
+    val items: Items? = null,
 
     @SerializedName("numOfRows")
-    var numOfRows: Int = 0,
+    val numOfRows: Int = 0,
 
     @SerializedName("pageNo")
-    var pageNo: Int = 0,
+    val pageNo: Int = 0,
 
     @SerializedName("totalCount")
-    var totalCount: Int = 0
+    val totalCount: Int = 0
 )

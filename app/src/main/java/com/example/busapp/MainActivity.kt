@@ -31,15 +31,15 @@ class MainActivity : AppCompatActivity() {
         val call: Call<BusStop> = NetworkManager.getBusStopInfoService()
             .getBusStopInfo(
                 str,
-                22, "대구은행역", 4846)
+                22, "", 10000)
         call.enqueue(object : Callback<BusStop> {
-            override fun onFailure(call: Call<BusStop>, t: Throwable) {
-                val str = "ciQLMBFjiJOBw4loD00NCS6fod8n3He99MysmrVuHvQxiSEou9CThpr0gmguv7TiXSI3vyjECcbmMMHAdu+3+w=="
-            }
-
             override fun onResponse(call: Call<BusStop>, response: retrofit2.Response<BusStop>) {
                 val busStopList = response.body()?.response
+                val sfd = response.body()?.response
+            }
 
+            override fun onFailure(call: Call<BusStop>, t: Throwable) {
+                val str = "ciQLMBFjiJOBw4loD00NCS6fod8n3He99MysmrVuHvQxiSEou9CThpr0gmguv7TiXSI3vyjECcbmMMHAdu+3+w=="
             }
         })
     }

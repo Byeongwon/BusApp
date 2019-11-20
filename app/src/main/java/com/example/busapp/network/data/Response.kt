@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 data class Response (
 
     @SerializedName("header")
-    var header: Header? = null,
+    val header: Header? = null,
 
     @SerializedName("body")
-    var body: Body? = null
+    val body: Body? = null
 
 )
