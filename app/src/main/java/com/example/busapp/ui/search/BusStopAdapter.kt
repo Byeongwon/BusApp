@@ -1,9 +1,12 @@
-package com.example.busapp
+package com.example.busapp.ui.search
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.busapp.R
 import com.example.busapp.network.data.Item
+import com.example.busapp.ui.arrive.ArriveActivity
 
 class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
 
@@ -22,19 +25,14 @@ class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
         with(viewHolder) {
             busStopName.text = busStopData[position].nodenm
             itemView.setOnClickListener { v ->
-                android.widget.Toast.makeText(
-                    v.context,
-                    position.toString(),
-                    android.widget.Toast.LENGTH_SHORT
-                ).show()
+                val intent = Intent(itemView.context, ArriveActivity::class.java)
+                intent.putExtra("nodeId", busStopData[position].nodeid)
+                itemView.context.startActivity(intent)
             }
         }
     }
 
     fun updateItems(busStops: List<Item>) {
         this.busStopData = busStops
-    }
-    fun changeData(busStopList: ArrayList<Item>) {
-        this.notifyDataSetChanged()
     }
 }

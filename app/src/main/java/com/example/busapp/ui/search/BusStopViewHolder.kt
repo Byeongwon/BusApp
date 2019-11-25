@@ -1,4 +1,4 @@
-package com.example.busapp
+package com.example.busapp.ui.search
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
