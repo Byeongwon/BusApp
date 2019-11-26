@@ -1,10 +1,12 @@
 package com.example.busapp.ui.arrive
 
 import android.support.v7.widget.RecyclerView
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.busapp.R
 import com.example.busapp.network.data.ArriveItem
+import java.sql.Date
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 
@@ -35,7 +37,6 @@ class ArriveAdapter: RecyclerView.Adapter<ArriveViewHolder>() {
     fun longToDate(mills: Long): String {
         val pattern = "mm분ss초 전"
         val format = SimpleDateFormat(pattern)
-        return format.format(Timestamp(mills))
-
+        return format.format(Timestamp(mills * 1000))
     }
 }

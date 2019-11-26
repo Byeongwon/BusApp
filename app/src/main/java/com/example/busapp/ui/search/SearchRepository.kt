@@ -2,7 +2,8 @@ package com.example.busapp.ui.search
 
 import com.example.busapp.network.NetworkManager
 import com.example.busapp.network.data.ArriveInfo
-import com.example.busapp.network.data.BusStop
+import com.example.busapp.network.data.ResponseBusStop
+import com.example.busapp.ui.search.model.BusStop
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -25,13 +26,18 @@ class SearchRepository {
         private const val numOfRows = 10000
     }
 
-    val getBusStops: Single<BusStop> =
+    val getBusStops: Single<ResponseBusStop> =
         NetworkManager.getBusStopInfoService().getBusStopInfo(
             serviceKey,
             cityCode, "",
             numOfRows
         ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
+
+    private fun test(response: ResponseBusStop): List<BusStop> {
+        return response.response?.body?.items?.item?.map { BusStop(it.nodenm, it.nodeid) } ?: emptyList()
+
+    }
     fun getArriveInfo(nodeId: String): Single<ArriveInfo> {
         return NetworkManager.getBusArriveInfoService().getArriveInfo(
             serviceKey,
