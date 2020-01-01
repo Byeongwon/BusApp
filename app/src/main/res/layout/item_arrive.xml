@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel"
+                  type="com.example.busapp.ui.arrive.ArriveViewModel"/>
+    </data>
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            card_view:cardElevation="10dp"
+            card_view:cardCornerRadius="10dp">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+            <ImageView
+                    android:id="@+id/left_icon"
+                    android:src="@drawable/bus_stop_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                    android:id="@+id/left_main_tv"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@{viewModel.busNumber}"
+                    tools:text="403"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintLeft_toRightOf="@id/left_icon"
+                    card_view:layout_constraintVertical_bias="0.35"/>
+
+            <TextView
+                    android:id="@+id/left_sub_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="11dp"
+                    android:text="@{viewModel.busType}"
+                    tools:text="간선버스/저상버스"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintLeft_toRightOf="@id/left_icon"
+                    card_view:layout_constraintVertical_bias="0.65"/>
+
+            <TextView
+                    android:id="@+id/right_main_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textSize="15dp"
+                    android:text="@{viewModel.arriveTime}"
+                    tools:text="2분 43초 전"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintRight_toRightOf="parent"
+                    card_view:layout_constraintVertical_bias="0.35"/>
+
+            <TextView
+                    android:id="@+id/right_sub_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textSize="13dp"
+                    android:text="@{viewModel.remainStationCount}"
+                    tools:text="3번째 전"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintRight_toRightOf="parent"
+                    card_view:layout_constraintVertical_bias="0.60"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

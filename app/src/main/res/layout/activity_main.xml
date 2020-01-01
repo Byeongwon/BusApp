@@ -17,7 +17,7 @@
                 android:text="@string/main_title_string"
                 android:textSize="25dp"
 
-                android:textColor="@color/color_white"
+                android:textColor="#8a95ff"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

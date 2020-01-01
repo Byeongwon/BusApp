@@ -1,14 +1,19 @@
 package com.example.busapp.ui.search
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import android.util.Log
+import android.view.View
 import com.example.busapp.network.data.Item
-import com.example.busapp.ui.arrive.ArriveAdapter
+import com.example.busapp.ui.arrive.ArriveListAdapter
 
-class SearchViewModel {
+class SearchViewModel : ViewModel() {
 
     private var busStopList = listOf<Item>()
     val adapter = BusStopAdapter()
-    val arriveAdapter = ArriveAdapter()
+    val arriveAdapter = ArriveListAdapter()
+
+    val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
     private val searchRepository: SearchRepository =
         SearchRepository()
@@ -18,14 +23,15 @@ class SearchViewModel {
     }
 
     private fun updateBusStops() {
+        loadingVisibility.value = View.VISIBLE
         val disposable = searchRepository.getBusStops.subscribe({ busStops ->
+            loadingVisibility.value = View.GONE
             val result = busStops.response?.body?.items?.item
             if (!result.isNullOrEmpty()) {
                 busStopList = result
-                adapter.updateItems(busStopList)
-                adapter.notifyDataSetChanged()
             }
         }, { throwable ->
+            loadingVisibility.value = View.GONE
             Log.d("ERROR", throwable.toString())
         })
     }
@@ -34,7 +40,7 @@ class SearchViewModel {
         val disposable = searchRepository.getArriveInfo(nodeId).subscribe({ arriveInfo ->
             val result = arriveInfo.response?.body?.items?.item
             if (!result.isNullOrEmpty()) {
-                arriveAdapter.updateItems(result)
+                arriveAdapter.updateArriveList(result)
                 arriveAdapter.notifyDataSetChanged()
             }
         }, { throwable ->

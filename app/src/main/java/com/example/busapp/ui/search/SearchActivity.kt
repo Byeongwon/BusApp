@@ -1,30 +1,34 @@
 package com.example.busapp.ui.search
 
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import com.example.busapp.R
-import kotlinx.android.synthetic.main.activity_search.*
+import com.example.busapp.databinding.ActivitySearchBinding
 
 class SearchActivity : AppCompatActivity() {
 
-    private val searchViewModel: SearchViewModel = SearchViewModel()
+    private lateinit var viewModel: SearchViewModel
+    private lateinit var binding: ActivitySearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
+        viewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
 
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         initView()
     }
 
     private fun initView() {
-        busStop_recycler.layoutManager = LinearLayoutManager(applicationContext)
-        busStop_recycler.adapter = searchViewModel.adapter
-
-        input_bus_stop_search.addTextChangedListener(object : TextWatcher {
+        binding.busStopRecycler.layoutManager = LinearLayoutManager(applicationContext)
+        binding.busStopRecycler.adapter = viewModel.adapter
+        binding.inputBusStopSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -33,7 +37,7 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (!s.isNullOrEmpty() && s.length >= 2) {
-                    searchViewModel.searchBusStop(s.toString())
+                    viewModel.searchBusStop(s.toString())
                 }
             }
         })

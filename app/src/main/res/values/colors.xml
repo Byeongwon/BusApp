@@ -5,8 +5,10 @@
     <color name="colorAccent">@color/color_white</color>
     <color name="appMainColor">#e6e6fa</color>
     <!--메인 배경 색상-->
-    <color name="main_background_color">#1E96FF</color>"
+    <color name="main_background_color">#f2f4ff</color>"
 
+    <color name="primaryBackgroundColor">#f2f4ff</color>
+    <color name="primaryTextColor">#8a95ff</color>
     <!--기본컬러-->
     <color name="color_white">#FFFFFF</color>
     <color name="color_black">#000000</color>

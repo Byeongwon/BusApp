@@ -5,8 +5,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!--상태바 색상-->
-        <item name="colorPrimaryDark">@color/main_background_color</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/primaryTextColor</item>
+        <item name="colorAccent">@color/primaryTextColor</item>
 
         <!-- No Title Bar-->
         <item name="windowActionBar">false</item>
