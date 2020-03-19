@@ -11,7 +11,6 @@ class SearchViewModel : ViewModel() {
 
     private var busStopList = listOf<Item>()
     val adapter = BusStopAdapter()
-    val arriveAdapter = ArriveListAdapter()
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
@@ -32,18 +31,6 @@ class SearchViewModel : ViewModel() {
             }
         }, { throwable ->
             loadingVisibility.value = View.GONE
-            Log.d("ERROR", throwable.toString())
-        })
-    }
-
-    fun updateArriveInfo(nodeId: String) {
-        val disposable = searchRepository.getArriveInfo(nodeId).subscribe({ arriveInfo ->
-            val result = arriveInfo.response?.body?.items?.item
-            if (!result.isNullOrEmpty()) {
-                arriveAdapter.updateArriveList(result)
-                arriveAdapter.notifyDataSetChanged()
-            }
-        }, { throwable ->
             Log.d("ERROR", throwable.toString())
         })
     }

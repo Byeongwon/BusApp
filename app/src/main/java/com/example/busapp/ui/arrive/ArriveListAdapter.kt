@@ -32,7 +32,7 @@ class ArriveListAdapter : RecyclerView.Adapter<ArriveListAdapter.ViewHolder>() {
     }
 
     class ViewHolder(private val binding: ItemArriveBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val viewModel = ArriveViewModel()
+        private val viewModel = ArriveItemViewModel()
 
         fun bind(arriveItem: ArriveItem) {
             viewModel.bind(arriveItem)
