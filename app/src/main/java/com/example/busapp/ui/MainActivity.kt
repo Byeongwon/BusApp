@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.busapp.R
+import com.example.busapp.ui.favorite.FavoriteActivity
 import com.example.busapp.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val FINISH_INTERVAL_TIME = 2000
     }
+
     private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,15 @@ class MainActivity : AppCompatActivity() {
         first_menu.setOnClickListener {
             startActivity(Intent(this, SearchActivity::class.java))
         }
+        second_menu.setOnClickListener {
+            Toast.makeText(applicationContext, "아직 지원하지 않는 기능입니다.", Toast.LENGTH_SHORT).show()
+        }
+        third_menu.setOnClickListener {
+            startActivity(Intent(this, FavoriteActivity::class.java))
+        }
+        fourth_menu.setOnClickListener {
+            Toast.makeText(applicationContext, "아직 지원하지 않는 기능입니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onBackPressed() {
@@ -36,7 +47,8 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         } else {
             backPressedTime = tempTime
-            Toast.makeText(applicationContext, "'뒤로'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "'뒤로'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 }

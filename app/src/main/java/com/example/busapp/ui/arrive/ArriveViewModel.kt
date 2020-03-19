@@ -4,12 +4,9 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.util.Log
 import android.view.View
-import com.example.busapp.network.data.ArriveItem
 import com.example.busapp.ui.search.SearchRepository
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
 
-class ArriveViewModel: ViewModel() {
+class ArriveViewModel : ViewModel() {
 
     val arriveAdapter = ArriveListAdapter()
 
@@ -17,9 +14,14 @@ class ArriveViewModel: ViewModel() {
         SearchRepository()
 
     var isResultEmpty: MutableLiveData<Int> = MutableLiveData()
+    val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
+
 
     fun updateArriveInfo(nodeId: String) {
+        loadingVisibility.value = View.VISIBLE
+
         val disposable = searchRepository.getArriveInfo(nodeId).subscribe({ arriveInfo ->
+            loadingVisibility.value = View.GONE
             val result = arriveInfo.response?.body?.items?.item
             if (!result.isNullOrEmpty()) {
                 isResultEmpty.value = View.GONE
@@ -29,6 +31,8 @@ class ArriveViewModel: ViewModel() {
                 isResultEmpty.value = View.VISIBLE
             }
         }, { throwable ->
+            loadingVisibility.value = View.GONE
+            isResultEmpty.value = View.VISIBLE
             Log.d("ERROR", throwable.toString())
         })
     }

@@ -6,4 +6,5 @@ import kotlinx.android.synthetic.main.search_recyclerview_item.view.*
 
 class BusStopViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val busStopName = itemView.busstop_name
+    val favoriteIcon = itemView.right_icon
 }

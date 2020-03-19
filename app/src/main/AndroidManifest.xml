@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".ui.search.SearchActivity"/>
         <activity android:name=".ui.arrive.ArriveActivity"/>
+        <activity android:name=".ui.favorite.FavoriteActivity"/>
     </application>
 
 </manifest>

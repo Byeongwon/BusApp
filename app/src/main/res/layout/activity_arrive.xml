@@ -12,7 +12,16 @@
             android:layout_height="match_parent"
             android:background="@color/main_background_color"
             android:orientation="vertical">
-        
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bind:mutableVisibility="@{viewModel.loadingVisibility}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/arriveInfo_recycler"
                 android:layout_width="match_parent"
@@ -30,6 +39,7 @@
                 android:textAlignment="center"
                 android:textSize="17dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 bind:mutableVisibility="@{viewModel.isResultEmpty}" />
     </android.support.constraint.ConstraintLayout>
 </layout>
