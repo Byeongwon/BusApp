@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/main_background_color"
-        android:orientation="vertical">
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/arriveInfo_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-            android:id="@+id/arrive_info_empty"
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.busapp.ui.arrive.ArriveViewModel" />
+    </data>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="해당 정류소 버스 도착 정보가 없습니다."
-            android:textAlignment="center"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:visibility="gone" />
-</android.support.constraint.ConstraintLayout>
+            android:background="@color/main_background_color"
+            android:orientation="vertical">
+        
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/arriveInfo_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+                android:id="@+id/arrive_info_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="해당 정류소 버스 도착 정보가 없습니다."
+                android:textAlignment="center"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                bind:mutableVisibility="@{viewModel.isResultEmpty}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
