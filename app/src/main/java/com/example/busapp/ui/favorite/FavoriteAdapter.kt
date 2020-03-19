@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.busapp.R
 import com.example.busapp.databinding.ItemFavoriteBinding
-import com.example.busapp.ui.search.model.BusStop
+import com.example.busapp.ui.favorite.model.BusStop
 
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 

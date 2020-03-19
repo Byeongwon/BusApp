@@ -1,4 +1,4 @@
-package com.example.busapp.ui.search.model
+package com.example.busapp.ui.favorite.model
 
 /**
  * 정류소 정보

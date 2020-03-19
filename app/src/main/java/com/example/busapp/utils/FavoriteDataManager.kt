@@ -2,7 +2,7 @@ package com.example.busapp.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.busapp.ui.search.model.BusStop
+import com.example.busapp.ui.favorite.model.BusStop
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

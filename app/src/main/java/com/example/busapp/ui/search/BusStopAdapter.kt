@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.example.busapp.R
 import com.example.busapp.network.data.Item
 import com.example.busapp.ui.arrive.ArriveActivity
-import com.example.busapp.ui.search.model.BusStop
+import com.example.busapp.ui.favorite.model.BusStop
 import com.example.busapp.utils.FavoriteDataManager
 
 class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
