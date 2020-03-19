@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModel
 import android.util.Log
 import android.view.View
 import com.example.busapp.network.data.Item
-import com.example.busapp.ui.arrive.ArriveListAdapter
+import com.example.busapp.ui.favorite.model.BusStop
 
 class SearchViewModel : ViewModel() {
 
@@ -36,7 +36,7 @@ class SearchViewModel : ViewModel() {
     }
 
     fun searchBusStop(name: String) {
-        val result = busStopList.filter { it.nodenm.contains(name) }
+        val result = busStopList.filter { it.nodenm.contains(name) }.map { BusStop.createFrom(it) }
         adapter.updateItems(result)
         adapter.notifyDataSetChanged()
     }

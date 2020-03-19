@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.busapp.R
-import com.example.busapp.network.data.Item
 import com.example.busapp.ui.arrive.ArriveActivity
 import com.example.busapp.ui.favorite.model.BusStop
 import com.example.busapp.utils.FavoriteDataManager
 
 class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
 
-    private var busStopData: List<Item> = emptyList()
+    private var busStopData: List<BusStop> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BusStopViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -27,16 +26,16 @@ class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
 
     override fun onBindViewHolder(viewHolder: BusStopViewHolder, position: Int) {
         with(viewHolder) {
-            busStopName.text = busStopData[position].nodenm
+            busStopName.text = busStopData[position].name
             itemView.setOnClickListener { v ->
                 val intent = Intent(itemView.context, ArriveActivity::class.java)
-                intent.putExtra("nodeId", busStopData[position].nodeid)
+                intent.putExtra("nodeId", busStopData[position].id)
                 itemView.context.startActivity(intent)
             }
             favoriteIcon.setOnClickListener {
                 val isUpdated = FavoriteDataManager.updateFavoriteData(
                     itemView.context,
-                    BusStop(busStopData[position].nodenm, busStopData[position].nodeid)
+                    busStopData[position]
                 )
                 if (!isUpdated) {
                     Toast.makeText(itemView.context, "이미 등록된 정류장입니다.", Toast.LENGTH_SHORT).show()
@@ -47,7 +46,7 @@ class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
         }
     }
 
-    fun updateItems(busStops: List<Item>) {
+    fun updateItems(busStops: List<BusStop>) {
         this.busStopData = busStops
     }
 }
