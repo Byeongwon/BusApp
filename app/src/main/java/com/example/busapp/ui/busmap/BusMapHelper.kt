@@ -34,8 +34,8 @@ class BusMapHelper(context: Context) {
     fun addMarker(latLng : LatLng) {
         val markerOptions = MarkerOptions().also {
             it.position(latLng)
-            // todo busMaker 추가 필요
-            it.icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_stop_icon))
+            // todo busMaker 추가 필요location-pin
+            it.icon(BitmapDescriptorFactory.fromResource(R.drawable.location_pin))
         }
         currentMarker = gMap?.addMarker(markerOptions)
     }
@@ -52,10 +52,10 @@ class BusMapHelper(context: Context) {
         val markerOptions = MarkerOptions().also {
             it.position(latLng)
             // todo busMaker 추가 필요
-            it.icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_stop_icon))
+            it.icon(BitmapDescriptorFactory.fromResource(R.drawable.pin))
         }
         customMarker = gMap?.addMarker(markerOptions)
-        changeFitBounds()
+//        changeFitBounds()
     }
 
     /**
@@ -79,6 +79,6 @@ class BusMapHelper(context: Context) {
      */
     fun setCenterPoint(latLng : LatLng) {
         moveCamera(latLng)
-        addMarker(latLng)
+        addCustomMarker(latLng)
     }
 }

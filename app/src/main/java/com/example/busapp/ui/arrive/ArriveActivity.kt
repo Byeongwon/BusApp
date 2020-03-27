@@ -1,11 +1,9 @@
 package com.example.busapp.ui.arrive
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.example.busapp.R
 import com.example.busapp.databinding.ActivityArriveBinding
 import kotlinx.android.synthetic.main.activity_arrive.*

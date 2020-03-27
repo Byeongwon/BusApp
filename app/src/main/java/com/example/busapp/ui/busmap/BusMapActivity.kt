@@ -21,6 +21,7 @@ class BusMapActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         initBinding()
         initMapView()
+        updateBusData()
     }
 
     private fun initBinding() {
@@ -37,6 +38,10 @@ class BusMapActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment?.getMapAsync(this)
     }
 
+    private fun updateBusData() {
+        val latLng = LocationProvider.getInstance().getLastLocationLatlng()
+        viewModel.updateNearBusStop(latLng, busMapHelper)
+    }
     override fun onMapReady(googleMap: GoogleMap?) {
         val latLng = LocationProvider.getInstance().getLastLocationLatlng()
         busMapHelper.setGoogleMap(googleMap)
