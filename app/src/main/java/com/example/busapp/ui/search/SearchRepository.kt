@@ -40,4 +40,11 @@ class SearchRepository {
         ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
     }
 
+    fun getBusStopNearByCurrentLocation(latitude: Double, longitude: Double): Single<ResponseBusStop> {
+        return NetworkManager.getBusNearInfoService().getBusStopInfo(
+            serviceKey,
+            latitude,
+            longitude
+        ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+    }
 }
