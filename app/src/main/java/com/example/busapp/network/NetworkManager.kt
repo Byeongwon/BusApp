@@ -3,6 +3,7 @@ package com.example.busapp.network
 import com.example.busapp.BuildConfig
 import com.example.busapp.network.api.ArriveInfoService
 import com.example.busapp.network.api.BusInfoService
+import com.example.busapp.network.api.NearBusInfoService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,11 +50,17 @@ object NetworkManager {
 
     private val busArriveInfoService = mRetrofit.create(ArriveInfoService::class.java)
 
+    private val busNearInfoService = mRetrofit.create(NearBusInfoService::class.java)
+
     fun getBusStopInfoService(): BusInfoService {
         return busStopInfoService
     }
 
     fun getBusArriveInfoService(): ArriveInfoService {
         return busArriveInfoService
+    }
+
+    fun getBusNearInfoService(): NearBusInfoService {
+        return busNearInfoService
     }
 }
