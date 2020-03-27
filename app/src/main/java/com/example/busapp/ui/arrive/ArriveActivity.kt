@@ -1,11 +1,11 @@
 package com.example.busapp.ui.arrive
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.busapp.R
 import com.example.busapp.databinding.ActivityArriveBinding
 import kotlinx.android.synthetic.main.activity_arrive.*
@@ -32,7 +32,8 @@ class ArriveActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        arriveInfo_recycler.layoutManager = LinearLayoutManager(applicationContext)
+        arriveInfo_recycler.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
         arriveInfo_recycler.adapter = arriveViewModel.arriveAdapter
     }
 

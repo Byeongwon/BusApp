@@ -1,0 +1,61 @@
+// 라이브러리 작성 그래들
+ext {
+
+    // 라이브러리 버전정보는 여기에 작성
+    rxjava2_version = '2.2.13'
+    rxandroid_version = '2.1.1'
+    glide_version = '4.0.0'
+    retrofit_version = '2.6.1'
+    okHttp3Version = '3.8.0'
+    playServiceVersion = '16.0.0'
+    protobufVersion = '3.5.1'
+    realm_version = '5.3.1'
+    apacheCommonLangVersion = '3.4'
+    googleGuavaVersion = '19.0'
+    google_service_version = '17.0.0'
+
+    //구글 플레이서비스 라이브러리 정보
+    playServiceDependencies = [
+            location: "com.google.android.gms:play-services-location:$playServiceVersion"
+    ]
+
+    // 네트워크 패키지 라이브러리 정보
+    networkDependencies = [
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            retrofitRxJavaAdaptemr  : "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+            retrofitJacksonConverter: "com.squareup.retrofit2:converter-jackson:$retrofit_version",
+            okHttpUrlConnection     : "com.squareup.okhttp3:okhttp-urlconnection:$okHttp3Version",
+            okHttpLoggingIntercepter: "com.squareup.okhttp3:logging-interceptor:$okHttp3Version"
+    ]
+
+    // protobuf 패키지 라이브러리 정보
+    protobufDependencies = [
+            retrofitProtobufConverter: "com.squareup.retrofit2:converter-protobuf:$retrofit_version",
+            protobuf                 : "com.google.protobuf:protobuf-java:$protobufVersion"
+    ]
+
+    // rx 패키지 라이브러리 정보
+    rxDependencies = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxjava2_version",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    ]
+
+    //navi sdk 공용 라이브러리
+    rozeEtcDependencies = [
+            commonLang: "org.apache.commons:commons-lang3:$apacheCommonLangVersion",
+            guava     : "com.google.guava:guava:$googleGuavaVersion"
+    ]
+
+    realmDependencies = [
+            realmAnotation      : "io.realm:realm-annotations:$realm_version",
+            realmKotlinExtention: "io.realm:realm-android-kotlin-extensions:$realm_version",
+            realmLibrary        : "io.realm:realm-android-library:$realm_version",
+    ]
+
+    // Google Map 라이브러리
+    googleMapDependencies = [
+            googleServiceMaps : "com.google.android.gms:play-services-maps:$google_service_version",
+            googleServiceLocation : "com.google.android.gms:play-services-location:$google_service_version"
+    ]
+}

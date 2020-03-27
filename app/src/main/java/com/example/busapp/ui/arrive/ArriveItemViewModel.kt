@@ -1,6 +1,6 @@
 package com.example.busapp.ui.arrive
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.busapp.network.data.ArriveItem
 import java.sql.Timestamp
 import java.text.SimpleDateFormat

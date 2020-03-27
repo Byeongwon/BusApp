@@ -1,14 +1,14 @@
 package com.example.busapp.ui.favorite
 
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.busapp.R
 import com.example.busapp.databinding.ItemFavoriteBinding
 import com.example.busapp.ui.favorite.model.BusStop
 
-class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
+class FavoriteAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
     private lateinit var favoriteList: List<BusStop>
 
@@ -47,7 +47,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
     }
 
     class ViewHolder(private val binding: ItemFavoriteBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
 
         fun bind(busStop: BusStop) {
             binding.viewModel = busStop

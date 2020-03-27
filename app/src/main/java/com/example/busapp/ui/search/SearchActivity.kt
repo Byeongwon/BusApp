@@ -1,10 +1,10 @@
 package com.example.busapp.ui.search
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import com.example.busapp.R
@@ -26,7 +26,8 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        binding.busStopRecycler.layoutManager = LinearLayoutManager(applicationContext)
+        binding.busStopRecycler.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
         binding.busStopRecycler.adapter = viewModel.adapter
         binding.inputBusStopSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {

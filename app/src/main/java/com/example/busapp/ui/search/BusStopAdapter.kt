@@ -1,7 +1,7 @@
 package com.example.busapp.ui.search
 
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -10,7 +10,7 @@ import com.example.busapp.ui.arrive.ArriveActivity
 import com.example.busapp.ui.favorite.model.BusStop
 import com.example.busapp.utils.FavoriteDataManager
 
-class BusStopAdapter : RecyclerView.Adapter<BusStopViewHolder>() {
+class BusStopAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<BusStopViewHolder>() {
 
     private var busStopData: List<BusStop> = emptyList()
 

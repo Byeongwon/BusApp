@@ -1,14 +1,14 @@
 package com.example.busapp.ui.arrive
 
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.busapp.R
 import com.example.busapp.databinding.ItemArriveBinding
 import com.example.busapp.network.data.ArriveItem
 
-class ArriveListAdapter : RecyclerView.Adapter<ArriveListAdapter.ViewHolder>() {
+class ArriveListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ArriveListAdapter.ViewHolder>() {
 
     private lateinit var arriveList: List<ArriveItem>
 
@@ -31,7 +31,7 @@ class ArriveListAdapter : RecyclerView.Adapter<ArriveListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class ViewHolder(private val binding: ItemArriveBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ItemArriveBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
         private val viewModel = ArriveItemViewModel()
 
         fun bind(arriveItem: ArriveItem) {
